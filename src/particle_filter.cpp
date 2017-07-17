@@ -6,8 +6,14 @@
  */
 
 #include <random>
+#include <algorithm>
+#include <iostream>
+#include <numeric>
+#include <math.h> 
+#include <iostream>
 #include <sstream>
-
+#include <string>
+#include <iterator>
 #include "particle_filter.h"
 
 using namespace std;
@@ -169,7 +175,7 @@ void ParticleFilter::resample() {
         weights.push_back(p.weight);
     }
 
-    discrete_distribution<double> d(weights.begin(), weights.end());
+    discrete_distribution<int> d(weights.begin(), weights.end());
 
     vector<Particle> resampled_particles;
     default_random_engine gen;
